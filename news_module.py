@@ -3,7 +3,7 @@
 def submit_news():
     news_id = input("Enter News ID: ")
     title = input("Enter News Title: ")
-    file = open("data/news.txt", "a")
+    file = open("dataNews.txt", "a")
     file.write(news_id + "|" + title + "\n")
     file.close()
 

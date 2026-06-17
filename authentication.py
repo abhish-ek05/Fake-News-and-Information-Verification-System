@@ -7,7 +7,7 @@ def register():
     # username and password validation
 
     if username and password :
-        file = open("data/users.txt", "a")
+        file = open("datausers.txt", "a")
         file.write(username + "," + password + "\n")
         file.close()
 
@@ -22,7 +22,7 @@ def login():
     username = input("Enter username: ")
     password = input("Enter password: ")
 
-    file = open("data/users.txt", "r")
+    file = open("datausers.txt", "r")
 
     for line in file:
         user, pwd = line.strip().split(",")
