@@ -2,6 +2,7 @@ from authentication import register, login
 from news_module import submit_news
 from analyzer import analyze_news, view_analysis
 
+
 while True:
 
     print("\n===== FAKE NEWS DETECTION SYSTEM =====")

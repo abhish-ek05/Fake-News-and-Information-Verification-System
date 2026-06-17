@@ -1,5 +1,3 @@
-## this checks weather the news is fake or real , although its not accurate , it just checks according to logic
-
 def analyze_news():
 
     keywords = [
@@ -15,7 +13,25 @@ def analyze_news():
 
     for line in news_file:
 
-        news_id, news_text = line.strip().split("|")
+        line = line.strip()
+
+        # Skip blank lines
+        if line == "":
+            continue
+
+        # Check if the line has the correct format
+        if "|" not in line:
+            print("Invalid record skipped:", line)
+            continue
+
+        parts = line.split("|")
+
+        # Ensure exactly 2 fields
+        if len(parts) != 2:
+            print("Invalid record skipped:", line)
+            continue
+
+        news_id, news_text = parts
 
         score = 0
 
@@ -35,7 +51,7 @@ def analyze_news():
             result = "Low Risk"
 
         analysis_file.write(
-            news_id + "|" + str(score) + "|" + result + "\n"
+            f"{news_id}|{score}|{result}\n"
         )
 
     news_file.close()
@@ -43,11 +59,10 @@ def analyze_news():
 
     print("Analysis Completed")
 
-
 def view_analysis():
 
     try:
-        file = open("dataAnalysis.txt", "r")
+        file = open("data/analysis.txt", "r")
 
         for line in file:
 

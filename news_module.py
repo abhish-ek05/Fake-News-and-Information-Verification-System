@@ -15,5 +15,3 @@ def submit_news():
         file.write(f"{news_id}|{title}\n")
 
     print("News Submitted Successfully")
-
-submit_news()
